@@ -6,8 +6,8 @@ class ModelTest(TestCase):
 
     def test_create_user(self):
         """test User with email address and password"""
-        email = 'testemail@gnail.com'
-        password = 'Testpass1234'
+        email = 'testemailtest@gnail.com'
+        password = 'Testpassss1234'
         user = get_user_model().objects.create_user(
             email=email,
             password=password
@@ -17,7 +17,7 @@ class ModelTest(TestCase):
 
     def test_new_user_email_normalized(self):
         """ test for email for exampt the uper lower cases"""
-        email = 'test@GNAIL.COM'
+        email = 'testaa@GNAIL.COM'
         user = get_user_model().objects.create_user(email, 'test123')
         self.assertEqual(user.email, email.lower())
 
@@ -27,10 +27,10 @@ class ModelTest(TestCase):
             get_user_model().objects.create_user(None, 'test123')
 
     def test_create_new_superuser(self):
-        """Test creating siperuser ans staff permission"""
+        """Test creating superuser ans staff permission"""
         user = get_user_model().objects.create_superuser(
-            'nano@tata.com',
-            'tatanano'
+            'tatanano@nano.com',
+            'password1234'
         )
         self.assertTrue(user.is_superuser)
         self.assertTrue(user.is_staff)
